@@ -8,10 +8,11 @@ public class Task
 	private Date _dueDate;
 	private Date _completeDate;
 	private Date _reminderDate;
-	private int _difficulty;
-	private int _importance;
-	private int _progress;
-	private int _maxProgress;
+	private Date _createDate;
+	private int _difficulty = -1;
+	private int _importance = -1;
+	private int _progress = -1;
+	private int _maxProgress = -1;
 	private TaskStatus _taskStatus;
 	
 	public String getName() throws Exception
@@ -89,9 +90,9 @@ public class Task
 	}
 	public void setDifficulty(int diff) throws Exception
 	{
-		if (diff < 0 || diff > 10)
+		if (diff <= 0 || diff > 10)
 		{
-			throw new Exception("new diff is not in valid range 0 <= diff <= 10");
+			throw new Exception("new diff is not in valid range 1 <= diff <= 10");
 		}
 			
 		if (isTaskEditable(true))
@@ -113,9 +114,9 @@ public class Task
 	}
 	public void setImportance(int newimport) throws Exception
 	{
-		if (newimport < 0 || newimport > 10)
+		if (newimport <= 0 || newimport > 10)
 		{
-			throw new Exception("new import is not in valid range 0 <= import <= 10");
+			throw new Exception("new import is not in valid range 1 <= import <= 10");
 		}
 		if (isTaskEditable(true))
 		{
@@ -174,6 +175,26 @@ public class Task
 		}
 		checkIfCompleted();
 	}
+	public Date getReminderDate() throws Exception
+	{
+		if (_reminderDate == null)
+		{
+			throw new Exception("reminder date is null");
+		}
+		return _reminderDate;
+	}
+	public void setReminderDate(Date date) throws Exception
+	{
+		if (isTaskEditable(true))
+		{
+			_reminderDate = date;
+		}
+		else
+		{
+			throw new Exception("the task is not valid for setting new reminder date");
+		}
+	}
+	
 	public void switchTaskOnhold() throws Exception
 	{
 		if (_taskStatus == TaskStatus.ABORT)
@@ -224,9 +245,48 @@ public class Task
 		_taskStatus = TaskStatus.ABORT;
 	}
 	
+	public int getPriorityIndex()
+	{
+		int pri = 0;
+		
+		int diff = 1;
+		if (_difficulty != -1)
+		{
+			diff = _difficulty;
+		}
+		int imp = 1;
+		if (_importance != -1)
+		{
+			imp = _importance;
+		}
+		
+		if (_dueDate != null && _progress != -1 && _maxProgress > 0)
+		{
+			double dater = (new Date().getTime() - _createDate.getTime()) /
+					(_dueDate.getTime() - _createDate.getTime());
+			double progr = _progress / _maxProgress;
+			if (dater >= progr)
+			{
+				// progress is falling behind
+				pri += (dater - progr) * (11 - diff) * (imp);
+			}
+			
+		}
+		
+		if (_dueDate != null)
+		{
+			double dater = (new Date().getTime() - _createDate.getTime()) /
+					(_dueDate.getTime() - _createDate.getTime());
+			pri += dater * 10;
+		}
+		
+		return pri;
+	}
+	
 	public Task(String n)
 	{
 		_name = n;
+		_createDate = new Date();
 	}
 	
 	/***
