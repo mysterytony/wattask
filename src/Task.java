@@ -1,7 +1,7 @@
 import java.util.Date;
 
 
-public class Task
+public class Task implements Comparable<Task>
 {
 	private String _name;
 	private String _note;
@@ -301,6 +301,13 @@ public class Task
 		return ((_taskStatus == TaskStatus.NOT_STARTED) ||
 				(_taskStatus == TaskStatus.IN_PROGRESS)) &&
 				((canBeOnHold)?true:!(_taskStatus==TaskStatus.ON_HOLD));
+	}
+	
+	
+	@Override
+	public int compareTo(Task t)
+	{
+		return this.getPriorityIndex() - t.getPriorityIndex();
 	}
 
 	
