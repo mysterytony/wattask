@@ -1,5 +1,8 @@
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class WatTask
  */
-@WebServlet("/WatTask")
+//@WebServlet("/WatTask")
 public class WatTask extends HttpServlet implements DBConnection
 {
 	private static final long serialVersionUID = 1L;
@@ -51,6 +55,26 @@ public class WatTask extends HttpServlet implements DBConnection
 		
 		PrintWriter printer = response.getWriter();
 		
+//		String filename = "header.html";
+//		ServletContext context = getServletContext();
+//		InputStream is = context.getResourceAsStream(filename);
+//		if (is != null) {
+//			InputStreamReader isr = new InputStreamReader(is);
+//			BufferedReader reader = new BufferedReader(isr);
+//			String text = "";
+//			
+//			//
+//			// We read the file line by line and later will be displayed on the 
+//			// browser page.
+//			//
+//			while ((text = reader.readLine()) != null) {
+//				printer.println(text);
+//			}
+//		}
+		
+		
+		
+		
 		//final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		
 		//String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
@@ -73,15 +97,15 @@ public class WatTask extends HttpServlet implements DBConnection
 			
 			Statement stmt = conn.createStatement();
 			String sql;
-			sql = "SELECT id, name FROM tabletest";
+			sql = "SELECT id, pass FROM tableUser";
 			ResultSet rs = stmt.executeQuery(sql);
 			
 			while (rs.next())
 			{
 				int id = rs.getInt("id");
-				String name = rs.getString("name");
+				String pass = rs.getString("pass");
 				
-				printer.print("<p>ID: " + id + ", Name: " + name + "</p>");
+				printer.print("<p>ID: " + id + ", Pass: " + pass + "</p>");
 				
 			}
 			
