@@ -15,3 +15,5 @@ public interface DBConnection
 	public static final String USER = "root";
 	public static final String PASS = "lihenantom001";
 }
+
+// change
