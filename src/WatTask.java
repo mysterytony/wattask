@@ -49,43 +49,14 @@ public class WatTask extends HttpServlet implements DBConnection
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setContentType("text/html");
 		
 		PrintWriter printer = response.getWriter();
+		printer.print(WebContent.getHeader());
 		
-//		String filename = "header.html";
-//		ServletContext context = getServletContext();
-//		InputStream is = context.getResourceAsStream(filename);
-//		if (is != null) {
-//			InputStreamReader isr = new InputStreamReader(is);
-//			BufferedReader reader = new BufferedReader(isr);
-//			String text = "";
-//			
-//			//
-//			// We read the file line by line and later will be displayed on the 
-//			// browser page.
-//			//
-//			while ((text = reader.readLine()) != null) {
-//				printer.println(text);
-//			}
-//		}
-		
-		
-		
-		
-		//final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-		
-		//String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
-		//String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
 		String DBNAME = "wattask";
 		String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DBNAME;
-		// final String DB_URL =
-		// "jdbc:mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/wattask";
-		
-		//final String USER = "adminHPZrVtR";
-		//final String PASS = "HBGU3QGv8jRL";
 		
 		try
 		{
