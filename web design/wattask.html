@@ -5,48 +5,74 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<div>
-  <ul class="header">
-    <li><a class="header_title" href="">WatTask</a></li>
-    <li><a class="header_link" href="">Task</a></li>
-    <li><a class="header_link" href="">You</a></li>
-    <ul style="float:right;list-style-type:none;">
-      <li><a class="header_link" href="">Login</a></li>
-    </ul
-  </ul>
-</div>
+<div class="page">
+  <div>
+    <ul class="header_bar">
+      <li><a class="header_link" href="wattask.html">WatTask</a></li>
+      <li><a class="header_link" href="calendar.html">Calendar</a></li>
+      <li><a class="header_link" href="task.html">Task</a></li>
+      <li><a class="header_link" href="habit.html">Habit</a></li>
+      <li><a class="header_link" href="you.html">You</a></li>
+    </ul>
+  </div>
 
-<hr />
 
-<div align="center">
-  <a href="">New Task</a>
-  <a href="">Change View</a>
-  <textarea rows="1" cols="10">Search...</textarea>
-</div>
-
-<hr />
-
-<table align="center">
-  <tr>
-    <th>Name</th>
-    <th>Status</th>
-    <th>Progress</th>
-    <th>Due</th>
-    <th>Difficulty</th>
-    <th>Importance</th>
-    <th>Action</th>
-  </tr>
-  <tr>
-    <td>A</td>
-    <th>Not Started</td>
-      <td>|||</td>
-      <td>2016/1/1</td>
-      <td>**</td>
-      <td>***</td>
+  <hr />
+  <table style="margin:auto">
+    <tr>
+      <th>Log In</th>
+      <th>Register</th>
+    </tr>
+    <tr>
       <td>
-        <a href="">Update</a>
+        <form>
+          <table>
+            <tr>
+              <td>User Name</td>
+              <td><input type="text" required/></td>
+            </tr>
+            <tr>
+              <td>Password</td>
+              <td><input type="password" required /></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><input type="submit" value="Log In" /></td>
+            </tr>
+          </table>
+        </form>
       </td>
-  </tr>
-</table>
+
+      <td>
+        <form>
+          <table>
+            <tr>
+              <td>User Name</td>
+              <td><input type="text" required/></td>
+            </tr>
+            <tr>
+              <td>Password</td>
+              <td><input type="password" required/></td>
+            </tr>
+            <tr>
+              <td>Confirm</td>
+              <td><input type="password" required/></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><input type="submit" value="Register" /></td>
+            </tr>
+          </table>
+        </form>
+      </td>
+    </tr>
+  </table>
+  <hr />
+  <h1> Front Page Intro </h1>
+  <hr />
+  Copyright (c) Tony Li 2016.
+
+</div>
+
 
 </html>

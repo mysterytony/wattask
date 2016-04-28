@@ -1,0 +1,209 @@
+<html>
+
+<head>
+  <title>WatTask</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+
+
+
+  <div class="page">
+
+<div>
+      <ul class="header_bar">
+        <li><a class="header_link" href="wattask.html">WatTask</a></li>
+        <li><a class="header_link" href="calendar.html">Calendar</a></li>
+        <li><a class="header_link" href="task.html">Task</a></li>
+        <li><a class="header_link" href="habit.html">Habit</a></li>
+        <li><a class="header_link" href="you.html">You</a></li>
+      </ul>
+    </div>
+
+
+    <hr />
+
+    <div>
+      <ul class="tab">
+        <li><button class="tab_link" type="button" onclick="showTaskList()">Task List</button></li>
+        <li><button class="tab_link" type="button" onclick="showReminderList()">Reminder List</button></li>
+      </ul>
+    </div>
+
+    <hr />
+
+    <div id="task_list">
+      <h2>Task List</h2>
+      <hr />
+      <form>
+        Filter:
+        <br />
+        Task Status:
+        <input type="checkbox">Show Not Started</input>
+        <input type="checkbox">Show In Progress</input>
+        <input type="checkbox">Show Completed</input>
+        <input type="checkbox">Show On Hold</input>
+        <input type="checkbox">Show Abort</input>
+
+        <br />
+        Priority:
+        <input type="checkbox">Show Not Important</input>
+        <input type="checkbox">Show Normal Priority</input>
+        <input type="checkbox">Show Important</input>
+
+        <br />
+        Completeness:
+        <input type="checkbox">&lt;20%</input>
+        <input type="checkbox">20% ~ 40%</input>
+        <input type="checkbox">40% ~ 60%</input>
+        <input type="checkbox">60% ~ 80%</input>
+        <input type="checkbox">80% ~ 100%</input>
+
+        <br />
+        Due Date:
+        <input type="checkbox">Tomorrow</input>
+        <input type="checkbox">In Next Week</input>
+        <input type="checkbox">In Next Month</input>
+        <input type="checkbox">In Next Year</input>
+
+        <br />
+        <input type="submit" value="Submit"></input>
+        <input type="submit" value="Show All"></input>
+        <input type="submit" value="Inverse Select"></input>
+      </form>
+
+      
+      <button type="submit" onclick="newTaskClick()">New Task</button>
+
+      <hr />
+
+      <table class="data_table">
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>%</th>
+          <th>Due Date</th>
+          <th>Priority</th>
+          <th>Action</th>
+        </tr>
+        <tr class="data_row status_veryurgent">
+          <td>MATH 136 MID 1</td>
+          <td>OH</td>
+          <td>||||||</td>
+          <td>3-15</td>
+          <td>**</td>
+          <td>
+            <a class="action_link" href="taskupdate.html">Update</a>
+            <a class="action_link" href="taskedit.html">Edit</a>
+          </td>
+        </tr>
+        <tr class="data_row status_urgent">
+          <td>A</td>
+          <td>IM</td>
+          <td>||||</td>
+          <td>3-15</td>
+          <td>*</td>
+          <td>
+            <a class="action_link" href="">Update</a>
+            <a class="action_link" href="">Edit</a>
+          </td>
+        </tr>
+        <tr class="data_row status_normal">
+          <td>A</td>
+          <td>NS</td>
+          <td>|</td>
+          <td>3-15</td>
+          <td>**</td>
+          <td>
+            <a class="action_link" href="">Update</a>
+            <a class="action_link" href="">Edit</a>
+          </td>
+        </tr>
+        <tr class="data_row status_relax">
+          <td>A</td>
+          <td>IM</td>
+          <td>|||||||||</td>
+          <td>3-15</td>
+          <td>**</td>
+          <td>
+            <a class="action_link" href="">Update</a>
+            <a class="action_link" href="">Edit</a>
+          </td>
+        </tr>
+        <tr class="data_row status_na">
+          <td>A</td>
+          <td>CO</td>
+          <td>||||||||||</td>
+          <td>3-15</td>
+          <td>***</td>
+          <td>
+            <a class="action_link" href="">Update</a>
+            <a class="action_link" href="">Edit</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="reminder_list">
+
+      <h2>Reminder List</h2>
+      <hr />
+
+      <button onclick="newReminderClick()">New Reminder</button>
+
+      <hr />
+
+      <table class="data_table">
+        <tr class="data_row">
+          <th>Reminder</th>
+          <th>Time</th>
+          <th>Repeat</th>
+          <th>End Repeat</th>
+          <th>Priority</th>
+          <th>Action</th>
+        </tr>
+        <tr class="data_row">
+          <td>CS 245 Weekly Assignment</td>
+          <td>Tuesday</td>
+          <td>Every Week</td>
+          <td>August 15, 2016</td>
+          <td>****</td>
+          <td>
+            <a class="action_link" href="reminderedit.html">Edit</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+    <hr>
+    Copyright (c) Tony Li 2016.
+  </div>
+  <script type="text/javascript">
+
+    function newTaskClick() {
+      window.location = "taskadd.html";
+    }
+
+    function newReminderClick() {
+      window.location = "reminderadd.html";
+    }
+
+    function showTaskList() {
+      document.getElementById('task_list').style.display = 'block';
+      document.getElementById('reminder_list').style.display = 'none';
+    }
+
+    function showReminderList() {
+      document.getElementById('task_list').style.display = 'none';
+      document.getElementById('reminder_list').style.display = 'block';
+    }
+
+    showTaskList();
+  </script>
+
+
+</body>
+</html>

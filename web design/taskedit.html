@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WatTask</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<div class="page">
+		<div>
+			<ul class="header_bar">
+				<li><a class="header_link" href="wattask.html">WatTask</a></li>
+				<li><a class="header_link" href="calendar.html">Calendar</a></li>
+				<li><a class="header_link" href="task.html">Task</a></li>
+				<li><a class="header_link" href="habit.html">Habit</a></li>
+				<li><a class="header_link" href="you.html">You</a></li>
+			</ul>
+		</div>
+
+		<hr />
+		<h2>Edit Task</h2>
+		<hr />
+
+		<form>
+			<table>
+				<tr>
+					<td class="edit_field">Task Name (Required):</td>
+					<td><textarea  rows="1" required style="resize: none;"></textarea></td>
+				</tr>
+				<tr>
+					<td class="edit_field">Due Date:</td>
+					<td><input type="date" value="2016-06-18"></input></td>
+				</tr>
+				<tr>
+					<td class="edit_field">Maximum Progress</td>
+					<td><input type="number" min="0" /></td>
+				</tr>
+				<tr>
+					<td class="edit_field">Priority:</td>
+					<td>
+						<select>
+							<option>Not Important</option>
+							<option>Normal</option>
+							<option>Important</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<input type="submit" value="Save Change"></input>
+					</td>
+				</tr>
+			</table>
+			
+		</form>
+		
+		<button type="submit" onclick="cancelClick();">Cancel</button>
+		<button type="submit" onclick="deleteTaskClick()">Delete Task</button>
+		<hr />
+		Copyright (c) Tony Li 2016.
+	</div>
+</body>
+
+<script type="text/javascript">
+
+	
+
+	function post(path, params, method) {
+	method = method || "post"; // Set method to post by default if not specified.
+	// The rest of this code assumes you are not using a library.
+	// It can be made less wordy if you use one.
+	var form = document.createElement("form");
+	form.setAttribute("method", method);
+	form.setAttribute("action", path);
+
+	for(var key in params) {
+		if(params.hasOwnProperty(key)) {
+			var hiddenField = document.createElement("input");
+			hiddenField.setAttribute("type", "hidden");
+			hiddenField.setAttribute("name", key);
+			hiddenField.setAttribute("value", params[key]);
+
+			form.appendChild(hiddenField);
+		}
+	}
+
+	document.body.appendChild(form);
+	form.submit();
+}
+
+function deleteTaskClick() {
+	var r = confirm("Please Confirm To Delete This Task!");
+	if (r == true) {
+		//post
+	}
+}
+
+function cancelClick() {
+	window.location = "task.html";
+}
+
+</script>
+</html>

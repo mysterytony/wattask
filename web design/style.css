@@ -1,47 +1,129 @@
 body {
-  margin: 0;
+  width: 62%;
+  margin: auto;
+  
 }
-.header {
+
+.page {
+  box-shadow: 5px 5px 2px #B2B2B2;
+  border: 1px;
+  border: #EBE2C4;
+  border: outset;
+}
+.header_bar {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #000000;
 }
-.header_link, .header_title {
+.header_link {
   float: left;
   border-right: 1px solid #bbb;
   display: block;
-  color: white;
+  color: #B9B9B9;
   text-align: center;
   text-decoration: none;
-}
-li:last-child {
-  border-right: none;
-}
-.header_title {
-  padding: 2px 10px;
-  font-weight: bold;
-  font-size: 20px
-}
-.header_link {
-  padding: 3px 10px;
-  font-size: 17px;
-}
-.header_title:hover,
-.header_link:hover:not(.active) {
-  background-color: #111;
-}
-.active {
-  background-color: #4CAF50;
+  padding: 5px 10px;
+  font-size: 20px;
 }
 
-.header_link:link, .header_link:visited {
-  color: rgb(199, 199, 199);
+a.header_link:hover {
+  background-color: #3C3C3C;
+}
+
+.data_row {
+  align-items: center;
+  text-align: center;
+}
+
+.data_table {
+  border-style: solid;
+  width: 100%;
+}
+
+th {
+  border-bottom-style: solid;
+}
+
+.status_veryurgent {
+  background-color: #FF9C9C;
+}
+
+.status_urgent {
+  background-color: #FFFF99;
+}
+
+.status_normal {
+  background-color: #ACFEAC;
+}
+
+.status_relax {
+  background-color: #A9FFFF;
+}
+
+.status_na {
+  background-color: #DEDEDE;
+}
+
+.tab {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #fbd34f;
+}
+.tab_link {
+  float: left;
+  border-right: 1px solid #413F01;
+  display: block;
+  color: #353535;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  padding: 4px 10px;
+  font-size: 17px;
+
+  background-color: #fbd34f;
+  cursor: pointer;
 }
-.header_link:hover, .header_link:active {
-  background-color: rgb(0, 0, 0);
+
+.tab_link:hover {
+  background-color: #F5E36A;
+}
+
+a.action_link {
+  text-align: center;
+  text-decoration: none;
+  color: #646464;
+}
+
+a.action_link:hover {
+  color: #000000;
+}
+
+.edit_field {
+  align-items: right;
+  text-align: right;
+}
+
+.calendar {
+  border-style: solid;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.calendar_cell {
+  vertical-align: top;
+}
+
+.calendar_taskcell {
+  background-color: #DB5DC8
+}
+
+.calendar_remindercell {
+  background-color: #AAD14B
+}
+
+.calendar_goalcell {
+  background-color: #6EE0ED
 }

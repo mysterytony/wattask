@@ -1,0 +1,56 @@
+<html>
+
+<head>
+  <title>WatTask</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+
+
+
+  <div class="page">
+
+    <div>
+      <ul class="header_bar">
+        <li><a class="header_link" href="wattask.html">WatTask</a></li>
+        <li><a class="header_link" href="calendar.html">Calendar</a></li>
+        <li><a class="header_link" href="task.html">Task</a></li>
+        <li><a class="header_link" href="habit.html">Habit</a></li>
+        <li><a class="header_link" href="you.html">You</a></li>
+      </ul>
+
+    </div>
+    <hr />
+    <h2>Add Habit</h2>
+    <hr />
+
+    <form>
+      <table>
+        <tr>
+          <td class="edit_field">Habit Name (Required):</td>
+          <td><textarea placeholder="Read Book" rows="1" required style="resize: none;"></textarea></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input type="submit" value="Confirm To Add"></input>
+          </td>
+        </tr>
+      </table>
+      
+    </form>
+    
+    <button type="submit" onclick="cancelClick();">Cancel</button>
+
+    <hr />
+    Copyright (c) Tony Li 2016.
+  </div>
+</body>
+<script type="text/javascript">
+  function cancelClick() {
+    window.location = "habit.html";
+  }
+</script>
+</html>

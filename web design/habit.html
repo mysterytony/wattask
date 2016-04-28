@@ -1,0 +1,73 @@
+<html>
+
+<head>
+  <title>WatTask</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+
+
+
+  <div class="page">
+
+    <div>
+      <ul class="header_bar">
+        <li><a class="header_link" href="wattask.html">WatTask</a></li>
+        <li><a class="header_link" href="calendar.html">Calendar</a></li>
+        <li><a class="header_link" href="task.html">Task</a></li>
+        <li><a class="header_link" href="habit.html">Habit</a></li>
+        <li><a class="header_link" href="you.html">You</a></li>
+      </ul>
+
+    </div>
+    <hr />
+    <h2>Habit</h2>
+    <hr />
+    <button type="submit" onclick="habitAddClick()">New Habit</button>
+    <hr />
+    <table class="data_table">
+      <tr class="data_row">
+        <th>Habit Name</th>
+        <th>%</th>
+        <th>Starting Date</th>
+        <th>EST Ending Date</th>
+        <th>Complete Days</th>
+        <th>Incomplete Days</th>
+        <th>Action</th>
+      </tr>
+      <tr class="data_row">
+        <td>Read Book</td>
+        <td>|||||||||</td>
+        <td>2016-01-01</td>
+        <td>2016-04-29</td>
+        <td>34</td>
+        <td>12</td>
+        <td>
+          <a class="action_link" href="" onclick="habitMarkCompleteClick()">Mark Complete Today</a>
+          <a class="action_link" href="habitedit.html">Edit</a>
+        </td>
+      </tr>
+    </table>
+
+
+    <hr>
+    Copyright (c) Tony Li 2016.
+
+  </div>
+</body>
+<script type="text/javascript">
+
+  function habitAddClick() {
+    window.location = "habitadd.html";
+  }
+
+  function habitMarkCompleteClick() {
+    alert("Congraz");
+  }
+
+
+
+</script>
+</html>
